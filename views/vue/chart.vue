@@ -7,6 +7,34 @@
 <script>
 export default {
 	mounted() {
+		var driver = neo4j.driver('bolt://3.235.46.32:7687',
+				neo4j.auth.basic('neo4j', 'massed-extenuations-desk'),
+				{/* encrypted: 'ENCRYPTION_OFF' */ });
+				
+		const query =
+			`
+			MERGE (p:Person {name:$name})
+			ON MATCH SET p.lastAt = timestamp()
+			ON CREATE SET p.createAt = timestamp()
+			RETURN p.name AS name
+		`;
+
+		const params = { "name": "Victoryia Struk" };
+
+		const session = driver.session({ database: "neo4j" });
+
+		session.run(query, params)
+			.then((result) => {
+				result.records.forEach((record) => {
+					console.log(record.get('name'));
+				});
+				session.close();
+				driver.close();
+			})
+			.catch((error) => {
+				console.error(error);
+			});
+			
 		var options = {
 			chart: {
 				type: 'bar'
