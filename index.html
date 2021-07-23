@@ -48,6 +48,9 @@
 	<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 	<script src="https://cdn.jsdelivr.net/npm/neo4j-driver@4.0.0/lib/browser/neo4j-web.min.js"></script>
 
+	<script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+
+
 	<script>
 		// php -S 127.0.0.1:5000
 		// python -m SimpleHTTPServer 8000
@@ -89,3 +92,17 @@
 	</script>
 </body>
 </html>
+
+
+<style>
+	#chart {
+		max-width: 650px;
+		margin: 35px auto;
+	}
+
+	#mynetwork {
+		width: 100%;
+		height: 600px;
+		border: 1px solid lightgray;
+	}
+</style>
