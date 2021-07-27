@@ -47,6 +47,9 @@
 
 	<script src="https://rawgit.com/neo4j-contrib/neovis.js/master/dist/neovis.js"></script>
 
+	<script src="https://cdn.jsdelivr.net/npm/neo4j-driver@4.0.0/lib/browser/neo4j-web.min.js"></script>
+	<script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+
 	<script>
 		// php -S 127.0.0.1:5000
 		// python -m SimpleHTTPServer 8000
@@ -68,10 +71,11 @@
 		].map(x => 'https://alxivnov.github.io/vue-compiler/' + x).concat([
 			'./views/vue/page.vue',
 			'./views/vue/test.vue',
-			'./views/vue/chart.vue'
+			'./views/vue/neovis.vue',
+			'./views/vue/vis-network.vue'
 		]);
 
-		let pages = [ 'page', 'test', 'chart' ];
+		let pages = [ 'page', 'test', 'neovis', 'vis-network' ];
 
 		let opts = {
 			el: '#app',
@@ -91,10 +95,10 @@
 
 
 <style>
-	#viz {
+	#vis-network,
+	#neovis {
 		width: 100%;
 		height: 700px;
 		border: 1px solid lightgray;
-		font: 22pt arial;
 	}
 </style>
