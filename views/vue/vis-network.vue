@@ -25,7 +25,7 @@ RETURN arrayData limit 50`
 		apiSetup() {
 //			let url = '/agents/neo4j/query';
 //			let url = 'http://localhost:5000/functions/d07d11ded09ef1c3ec0f073b060439fa';
-			let url = '';
+			let url = 'https://test.cloudcyte.com/functions/929aa6a3d05ad560c4edb95a66f852f5';
 			return fetch(url, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: this.query})
 				.then(res => res.json())
 				.then(arr => {
